@@ -1,6 +1,6 @@
 # Simple Books API #
 
-This API allows you to reserve a book.
+This API allows you to fetch,create,update and delete book.
 
 The API is available at `https://api-book-directory.herokuapp.com/`
 
@@ -18,7 +18,7 @@ GET `/books/:id`
 
 Retrieve detailed information about a book.
 
-### Submit an order ###
+### Create a book ###
 
 POST `/books/create`
 
@@ -56,7 +56,7 @@ The response body will contain the following object.
 
 ### Update a book ###
 
-PUT`/books/update/:id`
+PUT `/books/update/:id`
 
 Update an existing book. Requires authentication.
 
@@ -67,7 +67,7 @@ The request body needs to be in JSON format and allows you to update the followi
 
  Example
 ```
-PATCH /books/update/621cffb54d718b73f2662cd2
+PUT /books/update/621cffb54d718b73f2662cd2
 Authorization: Bearer <YOUR TOKEN>
 {
   "title": "Python",
@@ -75,7 +75,7 @@ Authorization: Bearer <YOUR TOKEN>
 }
 ```
 
-### Delete an order ###
+### Delete a book ###
 
 DELETE `/books/delete/:id`
 
@@ -141,4 +141,3 @@ The response body will contain the access token and other information about user
 | 404 | `NOT FOUND` |
 | 500 | `INTERNAL SERVER ERROR` |
 
- "API client already registered." Try changing the values for `clientEmail` and `clientName` to something else.
