@@ -56,7 +56,7 @@ exports.createBook = async (req, res) => {
         return res.status(422).json({ message: 'No Image provided.' });
     }
 
-    const { title, author } = req.body;
+    const { title, author, image } = req.body;
     const book = await Book.findOne({ title, author });
     if (book) {
         return res.status(409).json({ message: 'Book already exists' });

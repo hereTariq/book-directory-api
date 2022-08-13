@@ -3,12 +3,15 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const cors = require('cors');
 const { join } = require('path');
+const underconstruction = require('./middlewares/underconstruction');
+const app = express();
+app.use(underconstruction);
+
 require('dotenv').config();
 
 // importing routes
 const authRoutes = require('./routes/auth');
 const bookRoutes = require('./routes/book');
-const app = express();
 app.use(cors());
 
 const fileStorage = multer.diskStorage({
@@ -48,7 +51,7 @@ app.use('/auth', authRoutes);
 app.use('/books', bookRoutes);
 
 mongoose
-    .connect(process.env.DB)
+    .connect('mongodb://localhost:27017/book_directory')
     .then((result) => {
         console.log('connected');
         app.listen(PORT);
