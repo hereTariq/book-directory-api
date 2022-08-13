@@ -51,7 +51,7 @@ app.use('/auth', authRoutes);
 app.use('/books', bookRoutes);
 
 mongoose
-    .connect('mongodb://localhost:27017/book_directory')
+    .connect(process.env.DB)
     .then((result) => {
         console.log('connected');
         app.listen(PORT);
