@@ -5,7 +5,9 @@ const User = require('../models/user');
 const verifyToekn = async (req, res, next) => {
     const tokenBearer = req.header('authorization');
     if (!tokenBearer) {
-        return res.status(401).json({ message: 'Access Denied' });
+        return res
+            .status(401)
+            .json({ message: 'Access Denied. You first need to sign in' });
     }
 
     const token = tokenBearer.split(' ')[1];
