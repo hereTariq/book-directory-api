@@ -44,20 +44,21 @@ Example
 POST /books/create
 Authorization: Bearer <YOUR TOKEN>
 
-![example][./images/readmeImages/example.png]
+```
+
+![example][./images/readmeimages/example.png]
 
 The response body will contain the following object.
 
 ```
-
 {
-"message": "You successfully created a post",
-"savedBook": {
-"title": "Java",
-"author": "James Goslin",
-"\_id": "621cffb54d718b73f2662cd2",
-"\_\_v": 0
-}
+    "message": "You successfully created a post",
+    "savedBook": {
+        "title": "Java",
+        "author": "James Goslin",
+        "_id": "621cffb54d718b73f2662cd2",
+        "__v": 0
+    }
 }
 
 ```
@@ -76,14 +77,12 @@ The request body needs to be in JSON format and allows you to update the followi
 Example
 
 ```
-
 PUT /books/update/621cffb54d718b73f2662cd2
 Authorization: Bearer <YOUR TOKEN>
 {
-"title": "Python",
-"author": "Guido van Rossum"
+  "title": "Python",
+  "author": "Guido van Rossum"
 }
-
 ```
 
 ### Delete a book
@@ -97,10 +96,8 @@ The request body needs to be empty.
 Example
 
 ```
-
 DELETE /books/delete/621cffb54d718b73f2662cd2
 Authorization: Bearer <YOUR TOKEN>
-
 ```
 
 ## API Authentication
@@ -120,13 +117,11 @@ The request body needs to be in JSON format and include the following properties
 Example
 
 ```
-
 {
-"name": "John",
-"email": "example@gmail.com"
-"password": "pass@123"
+   "name": "John",
+   "email": "example@gmail.com"
+   "password": "pass@123"
 }
-
 ```
 
 ### LOGIN
@@ -141,12 +136,10 @@ The request body needs to be in JSON format and include the following properties
 Example
 
 ```
-
 {
-"email": "example@gmail.com"
-"password": "pass@123"
+   "email": "example@gmail.com"
+   "password": "pass@123"
 }
-
 ```
 
 The response body will contain the access token and other information about user. The access token is valid for 1 hour.
@@ -160,4 +153,3 @@ The response body will contain the access token and other information about user
 | 400         | `BAD REQUEST`           |
 | 404         | `NOT FOUND`             |
 | 500         | `INTERNAL SERVER ERROR` |
-```
