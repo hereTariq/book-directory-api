@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const cors = require('cors');
 const { join } = require('path');
-const underconstruction = require('./middlewares/underconstruction');
 const app = express();
-app.use(underconstruction);
+// app.use(require('./middlewares/underconstruction'));
 
 require('dotenv').config();
 
