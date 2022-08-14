@@ -36,60 +36,41 @@ keys are: title, author, and image(select file not the text)
 
 -   `title` - String- Required
 -   `author` - String - Required
--   `image` - String - Required (file)
+-   `image` - String - Required (file (imgage))
 
-Example
+### Example
 
-```
 POST /books/create
 Authorization: Bearer <YOUR TOKEN>
 
-```
+Example of input fields and the response using postman
 
 ![Example](https://github.com/hereTariq/book-directory-api/blob/master/images/radmeImages/example.png)
-
-The response body will contain the following object.
-
-```
-{
-    "message": "You successfully created a post",
-    "savedBook": {
-        "title": "Java",
-        "author": "James Goslin",
-        "_id": "621cffb54d718b73f2662cd2",
-        "__v": 0
-    }
-}
-
-```
 
 ### Update a book
 
 PUT `/books/update/:id`
 
-Update an existing book. Requires authentication.
+Update an existing book. Requires authentication and authorisation.
 
-The request body needs to be in JSON format and allows you to update the following properties:
+The request body needs to be in form-data format and allows you to update the following properties:
 
 -   `title` - String- Required
 -   `author` - String - Required
+-   `image` - String - Required (file (image))
 
-Example
+### Example
 
-```
 PUT /books/update/621cffb54d718b73f2662cd2
 Authorization: Bearer <YOUR TOKEN>
-{
-  "title": "Python",
-  "author": "Guido van Rossum"
-}
-```
+
+![Example](https://github.com/hereTariq/book-directory-api/blob/master/images/radmeImages/update.png)
 
 ### Delete a book
 
 DELETE `/books/delete/:id`
 
-Delete an existing book. Requires authentication.
+Delete an existing book. Requires authentication and authorisation.
 
 The request body needs to be empty.
 
@@ -98,11 +79,12 @@ Example
 ```
 DELETE /books/delete/621cffb54d718b73f2662cd2
 Authorization: Bearer <YOUR TOKEN>
+
 ```
 
 ## API Authentication
 
-To create or update or delete a book, you need to register and then login.
+To create or update or delete a book, you need to signup and then login.
 
 ### SIGNUP
 
@@ -142,7 +124,12 @@ Example
 }
 ```
 
-The response body will contain the access token and other information about user. The access token is valid for 1 hour.
+The response body will contain the access token and other information about user. The access token is valid for 10 hour.
+
+## Note
+
+You can update and delete only your books the one you have created.
+You can not delete and update others book.
 
 **Possible errors**
 
