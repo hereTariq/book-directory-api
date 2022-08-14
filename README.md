@@ -46,7 +46,7 @@ Authorization: Bearer <YOUR TOKEN>
 
 ```
 
-![Example](https://github.com/hereTariq/book-directory-api/blob/master/images/readmeimages/example.png)
+![Example](https://github.com/hereTariq/book-directory-api/blob/master/images/radmeImages/example.png)
 
 The response body will contain the following object.
 
