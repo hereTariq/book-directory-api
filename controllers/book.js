@@ -154,7 +154,7 @@ exports.updateBook = async (req, res, next) => {
         book.author = author;
         book.imageUrl = image;
         const updatedBook = await book.save();
-        res.status(200).json({ message: 'Book updated!' });
+        res.status(200).json({ message: 'Book updated!', updatedBook });
     } catch (err) {
         next(err);
     }
