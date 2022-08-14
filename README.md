@@ -46,7 +46,7 @@ Authorization: Bearer <YOUR TOKEN>
 
 ```
 
-![example][./images/readmeimages/example.png]
+![example](./images/readmeimages/example.png)
 
 The response body will contain the following object.
 
