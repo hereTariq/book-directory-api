@@ -2,6 +2,12 @@
 
 This API allows you to fetch,create,update and delete book.
 
+INSTRUCTION FOR CREATING AND UPDATING THE BOOK
+
+This API is expecting three inputs - title, author, and image and for the image API is expecting as a upload image not the url of the image.
+So if you are using postman then you do not have to enter all the inputs in JSON of the Body section rather you have to use the form-data of the Body section.
+If you are using JavaScript then you have to use built-in FormData() constructor to upload all the data.
+
 The API is available at `https://api-book-directory.herokuapp.com/`
 
 ## Endpoints
@@ -22,36 +28,36 @@ Retrieve detailed information about a book.
 
 POST `/books/create`
 
-Allows you to create a new book. Requires authentication.
+Allows you to create a new book. Requires authentication and authorisation.
 
-The request body needs to be in JSON format and include the following properties:
+The request body needs to be in form-data format and include the following properties:
+In the postman Goto the Body => form-data then input key and its value
+keys are: title, author, and image(select file not the text)
 
 -   `title` - String- Required
 -   `author` - String - Required
--   `image` - String - Required (must use upload file input)
+-   `image` - String - Required (file)
 
 Example
 
 ```
 POST /books/create
 Authorization: Bearer <YOUR TOKEN>
-{
-  "title": "Javascript",
-  "author": "Brendan Eich"
-}
-```
+
+![example][./images/readmeImages/example.png]
 
 The response body will contain the following object.
 
 ```
+
 {
-    "message": "You successfully created a post",
-    "savedBook": {
-        "title": "Java",
-        "author": "James Goslin",
-        "_id": "621cffb54d718b73f2662cd2",
-        "__v": 0
-    }
+"message": "You successfully created a post",
+"savedBook": {
+"title": "Java",
+"author": "James Goslin",
+"\_id": "621cffb54d718b73f2662cd2",
+"\_\_v": 0
+}
 }
 
 ```
@@ -70,12 +76,14 @@ The request body needs to be in JSON format and allows you to update the followi
 Example
 
 ```
+
 PUT /books/update/621cffb54d718b73f2662cd2
 Authorization: Bearer <YOUR TOKEN>
 {
-  "title": "Python",
-  "author": "Guido van Rossum"
+"title": "Python",
+"author": "Guido van Rossum"
 }
+
 ```
 
 ### Delete a book
@@ -89,8 +97,10 @@ The request body needs to be empty.
 Example
 
 ```
+
 DELETE /books/delete/621cffb54d718b73f2662cd2
 Authorization: Bearer <YOUR TOKEN>
+
 ```
 
 ## API Authentication
@@ -110,11 +120,13 @@ The request body needs to be in JSON format and include the following properties
 Example
 
 ```
+
 {
-   "name": "John",
-   "email": "example@gmail.com"
-   "password": "pass@123"
+"name": "John",
+"email": "example@gmail.com"
+"password": "pass@123"
 }
+
 ```
 
 ### LOGIN
@@ -129,10 +141,12 @@ The request body needs to be in JSON format and include the following properties
 Example
 
 ```
+
 {
-   "email": "example@gmail.com"
-   "password": "pass@123"
+"email": "example@gmail.com"
+"password": "pass@123"
 }
+
 ```
 
 The response body will contain the access token and other information about user. The access token is valid for 1 hour.
@@ -146,3 +160,4 @@ The response body will contain the access token and other information about user
 | 400         | `BAD REQUEST`           |
 | 404         | `NOT FOUND`             |
 | 500         | `INTERNAL SERVER ERROR` |
+```
